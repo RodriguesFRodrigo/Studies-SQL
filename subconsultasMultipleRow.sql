@@ -33,3 +33,23 @@ where salary not in (select department_id, avg(nvl(salary,0)) -- muitos valores 
 -- /--------------------/
 
 -- Utilizando o operador Any
+  -- Qualquer coisa de pelo menos um item da subconsulta
+  -- Busca os salarios dos empregados que são menor que qualquer salário da subquery
+select employee_id, last_name, job_id, salary
+from rodrigo_rodrigues.employees
+where salary < any
+                  (select salary -- muitos valores na tupla
+                  from rodrigo_rodrigues.employees
+                  where job_id = 'IT_PROG');
+
+-- /--------------------/
+
+-- Utilizalando o operador All
+ -- Qualquer coisa de todos os item da subconsulta
+ -- Todos os salarios dos empregados que são menor que todos os itens da subconsulta
+select employee_id, last_name, job_id, salary
+from rodrigo_rodrigues.employees
+where salary < all
+                  (select salary -- muitos valores na tupla
+                  from rodrigo_rodrigues.employees
+                  where job_id = 'IT_PROG');
