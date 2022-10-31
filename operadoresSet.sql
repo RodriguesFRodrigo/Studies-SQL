@@ -48,3 +48,18 @@ select employee_id, job_id --  Conjunto 2
 from rodrigo_rodrigues.employees
 where job_id = 'IT_PROG'
 order by employee_id;
+
+-- Utilizando mais de um operador SET
+
+select employee_id, job_id, hire_date, salary
+from employees
+where department_id in (60, 90, 100)
+union
+(select employee_id, job_id, hire_date, salary
+from employees
+where job_id = 'it_prog'
+intersect
+select employee_id, job_id, hire_date, salary
+from employees
+where salary > 10000)
+order by employee_id;
