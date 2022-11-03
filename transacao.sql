@@ -72,7 +72,7 @@ insert into employees (
 );
 
 -- Desfaz tudo a partir do SAVEPOINT A   
-rollback to SAVEPOINT  A;
+rollback to savepoint  A;
 
 -- Commit do primeiro insert
 commit; 
