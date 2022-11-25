@@ -2,7 +2,7 @@ select
   operadora.nome  as "operatorNome",
   usu.codigo as "idUsuario",
   usu.nome as "professional",
-  Vale ' || tipobeneficio.nome as "benefitTypeName",
+  Vale || tipobeneficio.nome as "benefitTypeName",
   to_char(beneficioUsuario.ativacao, 'DD/MM/YYYY') as "activationFormatted",
   to_char(beneficioUsuario.data_cancelamento, 'DD/MM/YYYY') as "cancellationFormatted"
 from HsBeneficiosUsuariosAlimentacao beneficioUsuario
